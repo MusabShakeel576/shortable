@@ -12,8 +12,16 @@ client.on('message', message => {
     const number = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     args.forEach(messageSend);
     function messageSend(item, index){
-        if(item.startsWith("https://mintable.app/") === true || item.startsWith("https://www.mintable.app/") === true || item.startsWith("www.mintable.app/") === true || item.startsWith("mintable.app/") === true){
-            var lastValue = item.split("/").pop();
+        const split = item.split("/");
+        console.log(split[5]);
+        if(split.length != 7){
+            return
+        }
+        else if(split[5] == 1 || split[5] == 2 || split[5] == 3 || split[5] == 4 || split[5] == 5 || split[5] == 6 || split[5] == 7 || split[5] == 8 || split[5] == 9){
+            return
+        }
+        else if(item.startsWith("https://mintable.app/") === true || item.startsWith("https://www.mintable.app/") === true || item.startsWith("www.mintable.app/") === true || item.startsWith("mintable.app/") === true){
+            var lastValue = split.pop();
             const randomAlphabet = Math.floor(Math.random() * alphabet.length);
             const randomNumber = Math.floor(Math.random() * number.length);
             var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
