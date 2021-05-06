@@ -13,7 +13,6 @@ client.on('message', message => {
     args.forEach(messageSend);
     function messageSend(item, index){
         const split = item.split("/");
-        console.log(split[5]);
         if(split.length != 7){
             return
         }
@@ -26,6 +25,7 @@ client.on('message', message => {
             const randomNumber = Math.floor(Math.random() * number.length);
             var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
             message.channel.send(reply);
+            message.delete({timeout: 5000});
         }
     }
 });
