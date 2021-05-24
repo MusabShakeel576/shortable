@@ -30,6 +30,10 @@ client.on('message', message => {
                     var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
                     message.channel.send(reply);
                     message.delete({timeout: 5000});
+                }else{
+                    if(message.author.id != '202194883677519873'){
+                        message.delete({timeout: 5000});
+                    }
                 }
             }else{
                 var lastValue = split.pop();
