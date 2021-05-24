@@ -35,6 +35,19 @@ client.on('message', message => {
                         message.delete({timeout: 5000});
                     }
                 }
+            }else if(serverId == '653624979497156608'){
+                if(channelId == '653624979497156611'){
+                    var lastValue = split.pop();
+                    const randomAlphabet = Math.floor(Math.random() * alphabet.length);
+                    const randomNumber = Math.floor(Math.random() * number.length);
+                    var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
+                    message.channel.send(reply);
+                    message.delete({timeout: 5000});
+                }else{
+                    if(message.author.id != '202194883677519873'){
+                        message.delete({timeout: 5000});
+                    }
+                }
             }else{
                 var lastValue = split.pop();
                 const randomAlphabet = Math.floor(Math.random() * alphabet.length);
