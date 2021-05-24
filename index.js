@@ -20,12 +20,25 @@ client.on('message', message => {
             return
         }
         else if(item.startsWith("https://mintable.app/") === true || item.startsWith("https://www.mintable.app/") === true || item.startsWith("www.mintable.app/") === true || item.startsWith("mintable.app/") === true){
-            var lastValue = split.pop();
-            const randomAlphabet = Math.floor(Math.random() * alphabet.length);
-            const randomNumber = Math.floor(Math.random() * number.length);
-            var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
-            message.channel.send(reply);
-            message.delete({timeout: 5000});
+            let serverId = message.guild.id;
+            let channelId = message.channel.id;
+            if(serverId == '477603375077130242'){
+                if(channelId == '827036035170828318' || channelId == '827036054301310986' || channelId == '827036068292853771' || channelId == '827036103592247327' || channelId == '827036146714017813' || channelId == '827036209159208991' || channelId == '833521055092047873' || channelId == '757781934058504262' || channelId == '757781979264450591'){
+                    var lastValue = split.pop();
+                    const randomAlphabet = Math.floor(Math.random() * alphabet.length);
+                    const randomNumber = Math.floor(Math.random() * number.length);
+                    var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
+                    message.channel.send(reply);
+                    message.delete({timeout: 5000});
+                }
+            }else{
+                var lastValue = split.pop();
+                const randomAlphabet = Math.floor(Math.random() * alphabet.length);
+                const randomNumber = Math.floor(Math.random() * number.length);
+                var reply = "https://mintable.app/"+alphabet[randomAlphabet]+"/item/"+number[randomNumber]+"/"+lastValue + " ("+message.author.username+" your new short URL, use it)"
+                message.channel.send(reply);
+                message.delete({timeout: 5000});
+            }
         }
     }
 });
